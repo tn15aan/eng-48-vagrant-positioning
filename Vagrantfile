@@ -1,9 +1,3 @@
-
-# def hello(name_f, name_l)
-#   name_f + ' ' + name_l
-# end
-#
-# puts hello('Michael', 'Angelo')
 Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu/xenial64"
@@ -11,9 +5,9 @@ Vagrant.configure("2") do |config|
   config.hostsupdater.aliases = ["development.local"]
 
   #sync a folder
-                          #to_sync_folder, #to_sync_vm
+  #to_sync_folder, #to_sync_vm
   config.vm.synced_folder "app", "/app"
 
   # provisioning
-  config.vm.provision "shell", path: "environment/spec-tests/provision.sh"
+  config.vm.provision "shell", path: "environment/provision.sh"
 end
